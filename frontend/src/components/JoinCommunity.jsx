@@ -64,24 +64,14 @@ const GlowingDial = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.div 
-      className="glowing-dial-container"
+    <div 
+      className={`glowing-dial-container ${isHovered ? 'dial-hovered' : ''}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      animate={{ scale: isHovered ? 1.05 : 1 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
     >
-      {/* Outer Glows - Rotate on hover */}
-      <motion.div 
-        className="dial-glow dial-glow-blue" 
-        animate={{ rotate: isHovered ? 360 : 0 }}
-        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div 
-        className="dial-glow dial-glow-green" 
-        animate={{ rotate: isHovered ? -360 : 0 }}
-        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-      />
+      {/* Outer Glows */}
+      <div className="dial-glow dial-glow-blue" />
+      <div className="dial-glow dial-glow-green" />
       
       {/* Main Clock Face */}
       <div className="dial-face">
@@ -98,22 +88,14 @@ const GlowingDial = () => {
           </svg>
         </div>
         
-        {/* Hands */}
-        <motion.div 
-          className="dial-hand dial-hand-blue"
-          animate={{ rotate: 360 }}
-          transition={{ duration: isHovered ? 1 : 60, repeat: Infinity, ease: "linear" }}
-        />
-        <motion.div 
-          className="dial-hand dial-hand-green"
-          animate={{ rotate: 360 }}
-          transition={{ duration: isHovered ? 0.25 : 15, repeat: Infinity, ease: "linear" }}
-        />
+        {/* Clock Hands — pure CSS for buttery 60fps */}
+        <div className={`dial-hand dial-hand-blue ${isHovered ? 'fast' : ''}`} />
+        <div className={`dial-hand dial-hand-green ${isHovered ? 'fast' : ''}`} />
         
         {/* Ticks */}
         <div className="dial-ticks"></div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

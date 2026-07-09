@@ -54,7 +54,7 @@ export default function MarketNetworkGlobe() {
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [countries]);
+  }, []);
 
   return (
     <div 

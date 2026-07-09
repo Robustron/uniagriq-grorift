@@ -19,14 +19,14 @@ const LightGlobe = () => {
     let phi = 0;
     
     const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: 1000,
-      height: 1000,
+      devicePixelRatio: 1,
+      width: 600,
+      height: 600,
       phi: 0,
       theta: 0.3,
       dark: 0, // Light theme globe
       diffuse: 1.2,
-      mapSamples: 16000,
+      mapSamples: 8000,
       mapBrightness: 6,
       baseColor: [0.85, 0.9, 0.85], // light greenish/grey base
       markerColor: [0.2, 0.5, 0.2], // dark green markers

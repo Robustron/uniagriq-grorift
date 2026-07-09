@@ -67,6 +67,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.glowing-dial-container.dial-hovered {
+  transform: scale(1.05);
 }
 
 .dial-glow {
@@ -161,6 +167,12 @@
   height: 45%;
   background: #3b82f6;
   box-shadow: 0 0 15px #3b82f6;
+  animation: spin-hand 60s linear infinite;
+  will-change: transform;
+}
+
+.dial-hand-blue.fast {
+  animation-duration: 1s;
 }
 
 .dial-hand-green {
@@ -168,6 +180,17 @@
   height: 35%;
   background: #10b981;
   box-shadow: 0 0 15px #10b981;
+  animation: spin-hand 15s linear infinite;
+  will-change: transform;
+}
+
+.dial-hand-green.fast {
+  animation-duration: 0.25s;
+}
+
+@keyframes spin-hand {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .dial-ticks {

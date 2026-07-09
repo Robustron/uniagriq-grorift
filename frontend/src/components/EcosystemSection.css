@@ -2,7 +2,7 @@
 
 /* Scroll Track and Sticky Wrapper */
 .eco-scroll-track {
-  height: 180vh; /* Reduced from 300vh for faster scrolling through the 3 items */
+  height: 280vh; /* Tall enough for 3 smooth transitions */
   position: relative;
   width: 100%;
 }
@@ -106,6 +106,7 @@
   gap: 1.5rem;
   color: #0f172a;
   z-index: 1;
+  will-change: transform, opacity;
 }
 
 .eco-glass-card::before {
