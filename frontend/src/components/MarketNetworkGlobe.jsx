@@ -83,7 +83,7 @@ export default function MarketNetworkGlobe() {
             const controls = globeRef.current.controls();
             if (controls) {
               controls.autoRotate = true;
-              controls.autoRotateSpeed = 0.8;
+              controls.autoRotateSpeed = 1.5;
               controls.enableZoom = false;
               controls.enableRotate = false; // Prevents manual drag-spinning, but auto-rotate continues
             }

@@ -36,7 +36,7 @@ const LightGlobe = () => {
       ],
       onRender: (state) => {
         state.phi = phi + spring.get();
-        phi += 0.003;
+        phi += 0.008;
       }
     });
 

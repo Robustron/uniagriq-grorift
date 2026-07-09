@@ -167,12 +167,12 @@
   height: 45%;
   background: #3b82f6;
   box-shadow: 0 0 15px #3b82f6;
-  animation: spin-hand 60s linear infinite;
+  animation: spin-hand 20s linear infinite;
   will-change: transform;
 }
 
 .dial-hand-blue.fast {
-  animation-duration: 1s;
+  animation-duration: 2s;
 }
 
 .dial-hand-green {
@@ -180,7 +180,7 @@
   height: 35%;
   background: #10b981;
   box-shadow: 0 0 15px #10b981;
-  animation: spin-hand 15s linear infinite;
+  animation: spin-hand 5s linear infinite;
   will-change: transform;
 }
 

@@ -2,7 +2,7 @@
 
 /* Scroll Track and Sticky Wrapper */
 .eco-scroll-track {
-  height: 280vh; /* Tall enough for 3 smooth transitions */
+  height: 400vh; /* Each of the 3 states gets ~130vh of scroll — buttery smooth */
   position: relative;
   width: 100%;
 }
