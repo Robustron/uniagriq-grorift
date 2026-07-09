@@ -1,0 +1,53 @@
+.energy-beam-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 4rem; /* Align exactly with the right column border */
+  width: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .energy-beam-container {
+    right: 5%;
+    opacity: 0.5;
+  }
+}
+
+.energy-beam-core {
+  width: 2px;
+  height: 100%;
+  /* Using a vibrant blue-purple gradient inspired by Huly */
+  background: linear-gradient(to bottom, transparent, #3b82f6 20%, #8b5cf6 50%, #3b82f6 80%, transparent);
+  box-shadow: 
+    0 0 15px 2px rgba(59, 130, 246, 0.8),
+    0 0 30px 5px rgba(139, 92, 246, 0.6),
+    0 0 60px 15px rgba(59, 130, 246, 0.3);
+  animation: pulse-beam 4s ease-in-out infinite;
+}
+
+.energy-beam-glow-ambient {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  mix-blend-mode: screen;
+}
+
+@keyframes pulse-beam {
+  0%, 100% {
+    opacity: 0.7;
+    filter: brightness(1) blur(0px);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.4) blur(1px);
+  }
+}

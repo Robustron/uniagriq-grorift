@@ -1,0 +1,331 @@
+/* src/components/ProblemStatementsSection.css */
+
+.ps-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #050505;
+  color: #ffffff;
+  padding: 8rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Background General Glow - Reduced intensity per user request */
+.ps-glow-master {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.05) 0%, transparent 70%);
+  top: 10%;
+  left: 30%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ps-header {
+  text-align: center;
+  max-width: 50rem;
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.ps-main-title {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: clamp(3rem, 4vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.1;
+  background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ps-main-desc {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #a1a1aa;
+  margin: 0;
+}
+
+/* =========================================================
+   THE EXACT HULY METABRAIN 7-CARD GRID (PERFECT 3x3)
+   ========================================================= */
+.ps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  grid-auto-rows: 280px; /* Uniform height for perfectly aligned rows */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 82rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Base Card Styling - Opaque */
+.ps-card {
+  position: relative;
+  background: #0d0d0d;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.ps-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Inner glow bleeding */
+.ps-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.ps-card:hover::before { opacity: 1; }
+
+.ps-card-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2.25rem;
+  justify-content: flex-end;
+}
+
+.center-content {
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.ps-card-icon {
+  margin-bottom: 1.5rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px -8px rgba(0, 0, 0, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.ps-card:hover .ps-card-icon {
+  transform: scale(1.05) translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 12px 40px -10px rgba(96, 165, 250, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.ps-card-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.2) 0%, transparent 60%);
+  opacity: 0.5;
+}
+
+.ps-card-title {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+}
+
+.ps-card-desc {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #a1a1aa;
+  margin: 0;
+}
+
+.text-center { text-align: center; }
+
+/* The Circle specific content */
+.ps-circle-number {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ps-circle-plus { font-size: 3rem; color: #60a5fa; -webkit-text-fill-color: #60a5fa; }
+.ps-circle-btn {
+  margin-top: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   GRID POSITIONS & THE INTERLOCKING S-CURVE
+   ========================================================= */
+
+/* The Empty Space with Grid Lines & Glow (Col 1, Row 1) */
+.ps-empty-glow {
+  grid-column: 1;
+  grid-row: 1; 
+  position: relative;
+  border-radius: 1.5rem;
+}
+
+/* The INTENSE neon flare pushing exactly through the S-curve connection */
+/* Placed at the bottom-right of the empty space, shining directly into the gap */
+.ps-flare {
+  position: absolute;
+  bottom: -150px; right: -150px; /* Centered exactly on the grid intersection */
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.3) 0%, rgba(59, 130, 246, 0.15) 30%, rgba(74, 222, 128, 0.05) 60%, transparent 80%);
+  filter: blur(40px);
+  z-index: -2;
+  mix-blend-mode: screen;
+  opacity: 0.2;
+  transform: scale(0.9);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ps-grid:hover .ps-flare {
+  opacity: 0.6;
+  transform: scale(1.05);
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.5) 0%, rgba(59, 130, 246, 0.3) 30%, rgba(74, 222, 128, 0.15) 50%, transparent 80%);
+}
+
+.ps-grid-lines {
+  position: absolute;
+  inset: -150px; /* Expand so dots flow completely through the gap */
+  /* The porous structure - non-colored (white) by default */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(circle at 70% 70%, black 0%, transparent 65%);
+  -webkit-mask-image: radial-gradient(circle at 70% 70%, black 0%, transparent 65%);
+  z-index: -1;
+  transition: opacity 0.5s ease;
+}
+
+/* C1: Top Middle (Row 1) */
+.ps-c1 { 
+  grid-column: 2; 
+  grid-row: 1; 
+  border-bottom-left-radius: 140px; /* The massive inward curve forming top half of S */
+}
+/* Intense inner bleed from the connection */
+.ps-c1::before { background: radial-gradient(circle at bottom left, rgba(96, 165, 250, 0.8) 0%, rgba(96, 165, 250, 0.1) 50%, transparent 70%); }
+/* Inner border highlight for the curve */
+.ps-c1::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  box-shadow: inset 2px -2px 10px rgba(96, 165, 250, 0.5);
+}
+
+/* C2: Top Right (Row 1) */
+.ps-c2 { 
+  grid-column: 3; 
+  grid-row: 1; 
+}
+
+/* C3: Middle Left (Row 2) - EXACTLY DIAGONAL TO C1 */
+.ps-c3 { 
+  grid-column: 1; 
+  grid-row: 2; 
+  border-top-right-radius: 140px; /* The massive inward curve forming bottom half of S */
+}
+/* Intense inner bleed from the connection */
+.ps-c3::before { background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.8) 0%, rgba(96, 165, 250, 0.1) 50%, transparent 70%); }
+.ps-c3::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  box-shadow: inset -2px 2px 10px rgba(96, 165, 250, 0.5);
+}
+
+/* C4: Middle Right (Spans Col 2 & 3, Row 2) */
+.ps-c4 { 
+  grid-column: 2 / 4; 
+  grid-row: 2; 
+  border-top-left-radius: 60px; /* Slight curve to receive the flow */
+}
+.ps-c4::before { background: radial-gradient(ellipse at center left, rgba(74, 222, 128, 0.3) 0%, transparent 70%); }
+
+/* C5: Bottom Left - CIRCLE (Row 3) */
+.ps-c5 { 
+  grid-column: 1; 
+  grid-row: 3; 
+  border-radius: 50% !important; 
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  align-self: center;
+}
+.ps-c5::before { background: radial-gradient(circle at top right, rgba(74, 222, 128, 0.2) 0%, transparent 70%); }
+.ps-c5 .ps-card-content { padding: 1.5rem; justify-content: center; }
+
+/* C6: Bottom Middle (Row 3) */
+.ps-c6 { 
+  grid-column: 2; 
+  grid-row: 3; 
+  border-top-left-radius: 60px;
+}
+.ps-c6::before { background: radial-gradient(circle at top left, rgba(74, 222, 128, 0.2) 0%, transparent 60%); }
+
+/* C7: Bottom Right (Row 3) */
+.ps-c7 { 
+  grid-column: 3; 
+  grid-row: 3; 
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .ps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+  }
+  .ps-c1, .ps-c3, .ps-c4, .ps-c6 {
+    border-radius: 1.5rem !important;
+  }
+  .ps-c1::after, .ps-c3::after { display: none; }
+  .ps-c5 {
+    border-radius: 1.5rem !important;
+    aspect-ratio: auto !important;
+    max-width: 100%;
+  }
+  .ps-c4 { grid-column: span 2; }
+  .ps-empty-glow { display: none; }
+}
+
+@media (max-width: 768px) {
+  .ps-section { padding: 5rem 1.5rem; }
+  .ps-grid { grid-template-columns: 1fr; }
+  .ps-c4 { grid-column: span 1; }
+}

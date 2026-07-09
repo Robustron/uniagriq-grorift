@@ -1,0 +1,223 @@
+.footer-section {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6rem 2rem 2rem;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fdf4ff 0%, #f3e8ff 100%); /* Stripe-like pink/purple gradient */
+  transition: background-color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .footer-section {
+    padding: 6rem 6rem 2rem;
+  }
+}
+
+.footer-burst-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  height: 80%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.footer-burst-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  z-index: 10;
+  width: 100%;
+  max-width: 72rem;
+  margin: 1.5rem auto 0;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1.2fr 1.8fr;
+  }
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo {
+  height: 2rem;
+  width: 2rem;
+  flex-shrink: 0;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-family: serif;
+  letter-spacing: 0.1em;
+  color: #3b5236;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+.footer-desc {
+  color: rgba(59, 82, 54, 0.7);
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.625;
+  max-width: 24rem;
+  margin-top: 0.75rem;
+}
+
+.footer-disclaimer {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(59, 82, 54, 0.1);
+  max-width: 28rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  color: #3b5236;
+  transition: background-color 0.3s ease;
+}
+
+.footer-disclaimer-title {
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #165f39;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer-disclaimer-text {
+  font-size: 0.625rem;
+  color: rgba(59, 82, 54, 0.7);
+  line-height: 1.625;
+  margin-top: 0.5rem;
+  font-weight: 300;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-social-link {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(59, 82, 54, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(59, 82, 54, 0.6);
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.footer-social-link:hover {
+  color: #165f39;
+  border-color: rgba(22, 95, 57, 0.3);
+  transform: scale(1.05);
+}
+
+.footer-social-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  fill: currentColor;
+}
+
+.icon-stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .footer-nav {
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 0.875rem;
+  }
+}
+
+.footer-nav-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav-title {
+  font-weight: 700;
+  color: #3b5236;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.6875rem;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.footer-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: rgba(59, 82, 54, 0.7);
+  font-weight: 300;
+}
+
+.footer-nav-link {
+  color: inherit;
+  text-decoration: none;
+  font-family: sans-serif;
+  transition: color 0.2s ease;
+}
+
+.footer-nav-link:hover {
+  color: #165f39;
+}
+
+.footer-copyright {
+  border-top: 1px solid rgba(59, 82, 54, 0.1);
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.625rem;
+  color: rgba(59, 82, 54, 0.6);
+  max-width: 72rem;
+  width: 100%;
+  margin: 3rem auto 0;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .footer-copyright {
+    margin-top: 4rem;
+  }
+}

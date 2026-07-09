@@ -1,0 +1,349 @@
+/* HulyHero.css */
+
+/* Reset body margin to fix white edges */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #050505;
+  overflow-x: hidden;
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 4.5rem 2rem 4rem; /* Reduced horizontal padding to 2rem */
+  overflow: hidden;
+  /* Dark bluish shade of black */
+  background-color: #050505;
+  background-image: radial-gradient(circle at 50% 50%, rgba(20, 25, 40, 0.5) 0%, transparent 80%);
+  color: white;
+  box-sizing: border-box;
+}
+
+/* Background vertical column lines (like Stripe) */
+.hero-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2rem;
+  width: calc(100% - 4rem); /* Reduced from 8rem */
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Top Navbar with Glassmorphism --- */
+.huly-navbar {
+  position: absolute;
+  top: 0;
+  left: 2rem; /* Starts exactly at the border */
+  width: calc(100% - 4rem); /* Fits exactly inside the borders */
+  box-sizing: border-box; /* Prevent padding from expanding width */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem; /* Slight padding inside the border */
+  z-index: 50;
+  /* Increased Glassmorphism */
+  background: rgba(15, 20, 15, 0.3); /* Stronger tint */
+  backdrop-filter: blur(36px);
+  -webkit-backdrop-filter: blur(36px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon-agri {
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-icon-agri::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border: 3px solid #5d4037; /* brown */
+  border-radius: 50%;
+  border-bottom-color: #22c55e; /* green leaf hint */
+  transform: rotate(45deg);
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.8rem; /* Reduced text size */
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: white;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-login {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nav-lang-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  line-height: 1; /* Normalize vertical spacing */
+}
+.nav-lang-btn svg {
+  display: block; /* Prevents tiny ghost spaces beneath inline SVGs */
+}
+.nav-lang-btn:hover { background: rgba(0, 0, 0, 0.6); }
+
+.nav-theme-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #fbbf24; /* yellow sun color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.nav-theme-btn:hover { background: rgba(0, 0, 0, 0.6); }
+
+@media (max-width: 768px) {
+  .huly-navbar { padding: 1rem; }
+  .navbar-links { display: none; }
+  .navbar-actions { display: none; }
+}
+
+/* --- Main Content --- */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  flex-grow: 1;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding-left: 1rem; /* Shifted more left to align perfectly with the logo */
+  padding-top: 6vh; /* Shifted a bit lower */
+}
+
+.hero-inner {
+  max-width: 48rem;
+}
+
+/* Typography */
+.title-container {
+  margin-bottom: 1.25rem;
+}
+
+.title-text {
+  font-family: 'Inter', -apple-system, sans-serif;
+  /* Thinner weight as requested */
+  font-weight: 600; 
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem); /* Reduced to prevent text wrap on smaller screens */
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+  margin: 0;
+  /* "Black radiance flow" - subtle gradient giving depth */
+  background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Adds the dark flow shadow behind it */
+}
+
+.slogan {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #94a3b8; /* Subtle gray/blue */
+  margin-bottom: 2.5rem;
+  max-width: 32rem; /* Reduced width to match layout */
+}
+
+/* --- Button: Interactive Fire Orange Glow --- */
+.btn-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.explore-btn-ember {
+  position: relative;
+  /* Base color: glassy silver/gray matching the right side of the image */
+  background: rgba(220, 220, 225, 0.85); 
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #3b1c0a; /* Dark brown text */
+  padding: 0.75rem 1.75rem; /* Reduced button size */
+  border-radius: 9999px;
+  font-size: 0.75rem; /* Reduced text size */
+  font-weight: 800; /* Extra bold text */
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  overflow: hidden;
+  /* Glow box shadow on the container itself */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, background 0.3s ease;
+  
+  /* Default position on the left covering ~30% */
+  --x: 15%;
+  --y: 50%;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* The localized Ember Glow Element inside the button */
+.btn-ember-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Intense bright amber golden orange fireball */
+  background: radial-gradient(circle 120px at var(--x, 15%) var(--y, 50%), rgba(255, 180, 0, 1) 0%, rgba(255, 130, 0, 0.95) 45%, transparent 100%);
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.explore-btn-ember:hover {
+  transform: scale(1.04);
+  background: rgba(255, 255, 255, 0.95); /* Brightens on hover */
+  box-shadow: 0 8px 25px rgba(255, 180, 0, 0.5), 0 4px 15px rgba(0, 0, 0, 0.4); /* Strong bright golden amber outer glow */
+}
+
+/* Brighten inner fireball intensely on hover */
+.explore-btn-ember:hover .btn-ember-glow {
+  background: radial-gradient(circle 140px at var(--x, 15%) var(--y, 50%), rgba(255, 200, 0, 1) 0%, rgba(255, 140, 0, 1) 50%, transparent 100%);
+}
+
+/* We don't need a hover state for the inner glow because JS handles the position */
+
+
+/* Sliding Marquee Ticker */
+.marquee-container {
+  position: absolute;
+  bottom: 0;
+  left: 2rem; /* Starts at the left border */
+  width: calc(100% - 4rem); /* Fits inside the borders */
+  overflow: hidden;
+  padding: 1.2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(8, 10, 17, 0.6); /* Match the new bluish black background */
+  backdrop-filter: blur(10px);
+  z-index: 20;
+}
+
+.marquee-gradient-left, .marquee-gradient-right {
+  position: absolute;
+  top: 0;
+  width: 8rem;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.marquee-gradient-left {
+  left: 0;
+  background: linear-gradient(to right, #080a11, transparent);
+}
+
+.marquee-gradient-right {
+  right: 0;
+  background: linear-gradient(to left, #080a11, transparent);
+}
+
+.marquee-flex {
+  display: flex;
+  overflow: hidden;
+}
+
+.marquee-scroll {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  animation: scroll-ticker 40s linear infinite;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.marquee-item-dot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 2rem;
+}
+
+@keyframes scroll-ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.3333%); }
+}

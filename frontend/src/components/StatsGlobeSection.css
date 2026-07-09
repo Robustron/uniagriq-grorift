@@ -1,0 +1,166 @@
+/* src/components/StatsGlobeSection.css */
+
+.stats-section {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  background-color: #f8faf7; /* Light cream/greenish off-white */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 4rem 2rem;
+  z-index: 1;
+}
+
+/* Background Globe Wrapper */
+.stats-globe-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  pointer-events: auto; /* Allow globe interaction */
+}
+
+/* Container for Stats */
+.stats-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Header Styling */
+.stats-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  z-index: 10;
+}
+
+.stats-subtitle {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #5c7562; /* Muted green */
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+.stats-title {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: #2b4730; /* Deep olive green */
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+/* Base Top and Bottom Lines */
+.stats-line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(43, 71, 48, 0.15); /* Faint dark green line */
+  transition: all 0.3s ease;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 3rem 0;
+  pointer-events: auto; /* Catch clicks on the stats themselves */
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.stat-val {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  font-weight: 800;
+  color: #2b4730; /* Deep olive green */
+  margin: 0 0 0.5rem 0;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.stat-label {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #8c9b90; /* Muted olive */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* The individual underline that highlights on hover/active */
+.stat-underline,
+.stat-topline {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #94a3b8, transparent); /* Silver effect */
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 12px rgba(148, 163, 184, 0.9);
+}
+
+.stat-underline {
+  bottom: -3rem; /* Push it down to overlap the bottom container line */
+}
+
+.stat-topline {
+  top: -3rem; /* Push it up to overlap the top container line */
+}
+
+/* Hover and Active States */
+.stat-item:hover .stat-underline,
+.stat-item.active .stat-underline,
+.stat-item:hover .stat-topline,
+.stat-item.active .stat-topline {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.stat-item:hover .stat-val,
+.stat-item.active .stat-val {
+  color: #1a2e1f; /* Darker green on hover */
+  text-shadow: 0 0 20px rgba(43, 71, 48, 0.2);
+}
+
+.stat-item:hover .stat-label,
+.stat-item.active .stat-label {
+  color: #2b4730;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 4rem;
+  }
+  .stat-underline {
+    bottom: -2rem; /* Adjust for stacked layout */
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

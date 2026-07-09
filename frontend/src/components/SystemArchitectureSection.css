@@ -1,0 +1,227 @@
+/* src/components/SystemArchitectureSection.css */
+
+.sys-arch-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #050505; /* Deep dark matching the rest of the site */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 4rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Faint, porous dot grid in the background */
+.sys-arch-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(52, 211, 153, 0.15) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  background-position: center;
+  z-index: -1;
+}
+
+/* Header */
+.sys-arch-header {
+  max-width: 55rem;
+  width: 100%;
+  margin-bottom: 6rem;
+  z-index: 10;
+}
+
+.sys-arch-title {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.text-white { color: #ffffff; }
+.text-green-muted { color: #a7f3d0; opacity: 0.8; } /* Replaces zinc-400 */
+
+/* Diagram Container */
+.sys-arch-diagram {
+  position: relative;
+  width: 1000px;
+  height: 600px;
+  z-index: 10;
+  transform: scale(1.35);
+  transform-origin: center top;
+  margin-top: 4rem;
+  margin-bottom: 12rem;
+}
+
+/* --- CONNECTING LINES --- */
+.arch-line {
+  position: absolute;
+  background-color: transparent;
+}
+
+.arch-line-v {
+  border-left: 2px dotted rgba(52, 211, 153, 0.3); /* Green dotted lines */
+  width: 2px;
+}
+
+.arch-line-h {
+  border-top: 2px dotted rgba(52, 211, 153, 0.3);
+  height: 2px;
+}
+
+/* Center to Top */
+.center-to-top { top: 200px; left: 500px; height: 100px; }
+.top-branch { top: 200px; left: 350px; width: 300px; }
+.top-branch-left { top: 150px; left: 350px; height: 50px; }
+.top-branch-right { top: 150px; left: 650px; height: 50px; }
+
+/* Center to Left */
+.center-to-left { top: 325px; left: 350px; width: 100px; }
+.left-to-icons { top: 325px; left: 220px; width: 20px; }
+
+/* Center to Right */
+.center-to-right-bottom { top: 325px; left: 550px; width: 80px; }
+.right-up-branch { top: 250px; left: 630px; height: 75px; }
+.right-up-to-node { top: 250px; left: 630px; width: 40px; }
+.right-extend { top: 325px; left: 750px; width: 80px; }
+
+/* Center to Bottom */
+.center-to-bottom { top: 370px; left: 500px; height: 60px; }
+.bottom-to-psp { top: 460px; left: 500px; height: 40px; }
+.bottom-branch { top: 480px; left: 450px; width: 100px; }
+.bottom-branch-left { top: 480px; left: 450px; height: 20px; }
+.bottom-branch-right { top: 480px; left: 550px; height: 20px; }
+
+
+/* --- NODES --- */
+.arch-node {
+  position: absolute;
+  background-color: #065f46; /* Base green */
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.arch-node:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 8px 24px rgba(52, 211, 153, 0.2);
+}
+
+/* Center Node */
+.center-node {
+  top: 325px;
+  left: 500px;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #10b981, #047857); /* Bright emerald to dark green */
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 0 40px rgba(52, 211, 153, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Top Nodes */
+.top-node { top: 150px; background-color: #064e3b; } /* Darkest green */
+.top-left { left: 350px; }
+.top-center { left: 500px; }
+.top-right { left: 650px; }
+
+/* Top Dashed */
+.arch-node-dashed {
+  position: absolute;
+  border: 1px dashed rgba(52, 211, 153, 0.4); /* Green dashed */
+  border-radius: 6px;
+  transform: translate(-50%, -50%);
+  height: 36px;
+}
+.top-dashed-left { top: 150px; left: 230px; width: 60px; }
+.top-dashed-right { top: 150px; left: 560px; width: 90px; }
+
+/* Left Nodes */
+.left-node { top: 325px; left: 285px; width: 130px; background-color: #047857; } /* Teal-green */
+
+.arch-icons-box {
+  position: absolute;
+  top: 325px;
+  left: 170px;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-color: rgba(52, 211, 153, 0.05); /* Green tint */
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  padding: 8px;
+}
+
+.arch-icon-slot {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+.arch-icon-slot.dashed { border: 1px dashed rgba(52, 211, 153, 0.4); }
+.arch-icon-slot.filled { background-color: #064e3b; color: #a7f3d0; border: 1px solid rgba(52,211,153,0.3); }
+.blue-icon { background-color: #059669; color: #fff; }
+.red-icon { background-color: #10b981; color: #fff; }
+
+/* Right Nodes */
+.right-node { width: 140px; background-color: #059669; }
+.right-top { top: 250px; left: 740px; }
+.right-bottom { top: 325px; left: 680px; }
+
+.arch-icon-single {
+  position: absolute;
+  top: 325px;
+  left: 850px;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-color: #064e3b;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(52, 211, 153, 0.2);
+  background-image: linear-gradient(180deg, rgba(52, 211, 153, 0.2) 0%, transparent 100%);
+}
+
+/* Bottom Nodes */
+.bottom-node { top: 445px; left: 500px; width: 140px; background-color: #10b981; } /* Light Emerald */
+.bottom-sub-node { top: 515px; left: 500px; width: 80px; background-color: #059669; font-size: 12px; }
+
+/* Bottom Dashed */
+.bottom-dashed-left { top: 515px; left: 450px; width: 60px; }
+.bottom-dashed-right { top: 515px; left: 550px; width: 60px; }
+
+/* Responsive scale down for smaller screens */
+@media (max-width: 1100px) {
+  .sys-arch-diagram {
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+}
+@media (max-width: 800px) {
+  .sys-arch-diagram {
+    transform: scale(0.5);
+    transform-origin: center;
+  }
+}
