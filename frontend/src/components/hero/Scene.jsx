@@ -306,8 +306,8 @@ export default function Scene({ mouseRef }) {
   return (
     <Canvas
       camera={{ fov: 45, near: 0.1, far: 100, position: [0, 0, 10] }}
-      dpr={[1, 2]}
-      gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+      dpr={[1, 1.5]}
+      gl={{ antialias: false, alpha: true, powerPreference: 'high-performance' }}
     >
       {/* Fog blends distant objects into the white theme */}
       <fog attach="fog" args={[bgColor, 5, 30]} />
@@ -317,7 +317,7 @@ export default function Scene({ mouseRef }) {
       {/* Visual Elements */}
       {/* Laser beam and geometric elements have been removed so the user's video takes center stage */}
       
-      <Leaves count={150} />
+      <Leaves count={80} />
     </Canvas>
   )
 }

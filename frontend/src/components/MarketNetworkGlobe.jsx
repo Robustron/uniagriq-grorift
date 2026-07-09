@@ -11,9 +11,21 @@ export default function MarketNetworkGlobe() {
   const [dimensions, setDimensions] = useState({ width: 800, height: 800 });
   const containerRef = useRef(null);
 
+  // Pre-compute stable colors — NEVER call Math.random() in the render loop!
+  const countryColors = React.useRef(new Map());
+  const getCountryColor = (d) => {
+    const id = d.properties?.ISO_A3 || d.id || Math.random();
+    if (!countryColors.current.has(id)) {
+      countryColors.current.set(id, Math.random() > 0.5
+        ? 'rgba(16, 185, 129, 0.8)'
+        : 'rgba(59, 130, 246, 0.8)');
+    }
+    return countryColors.current.get(id);
+  };
+
   useEffect(() => {
-    // Load country boundaries geojson for hex polygons
-    fetch('https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson')
+    // Load from local public folder — no runtime network dependency!
+    fetch('/countries.geojson')
       .then(res => res.json())
       .then(setCountries);
 
@@ -89,7 +101,7 @@ export default function MarketNetworkGlobe() {
         hexPolygonResolution={3}
         hexPolygonMargin={0.3}
         // Alternate continent colors between Emerald and Blue
-        hexPolygonColor={(d) => Math.random() > 0.5 ? 'rgba(16, 185, 129, 0.8)' : 'rgba(59, 130, 246, 0.8)'}
+        hexPolygonColor={getCountryColor}
         hexPolygonLabel={({ properties: d }) => `
           <div style="background: #0f172a; padding: 4px 8px; border-radius: 4px; color: #fff; font-family: Inter, sans-serif; font-size: 12px; border: 1px solid rgba(16, 185, 129, 0.5);">
             ${d.ADMIN}

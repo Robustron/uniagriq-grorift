@@ -25,7 +25,7 @@ const FooterBurst = () => {
       height = rect.height;
       
       rays = [];
-      const numRays = 400; // Stripe-level density
+      const numRays = 200; // Reduced from 400 for performance
       
       for (let i = 0; i < numRays; i++) {
         const spread = (Math.random() * 170 - 85) * (Math.PI / 180);
@@ -68,10 +68,22 @@ const FooterBurst = () => {
     };
     window.addEventListener('mousemove', handleMouseMove);
     
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisible = entry.isIntersecting; },
+      { threshold: 0.01 }
+    );
+    observer.observe(canvas);
+
     let animationFrame;
     
     const render = () => {
       if (!width || !height) {
+        animationFrame = requestAnimationFrame(render);
+        return;
+      }
+      if (!isVisible) {
+        // Canvas is offscreen — skip drawing, reschedule cheaply
         animationFrame = requestAnimationFrame(render);
         return;
       }
@@ -160,6 +172,7 @@ const FooterBurst = () => {
       window.removeEventListener('resize', init);
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animationFrame);
+      observer.disconnect();
     };
   }, []);
   

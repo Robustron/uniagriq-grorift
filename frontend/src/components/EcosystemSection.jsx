@@ -109,12 +109,11 @@ export default function EcosystemSection() {
 
   // We will track scroll manually to ensure it works reliably across all browsers/wrappers
   React.useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
-      
-      // Calculate how far we've scrolled into this 300vh section
-      // rect.top is 0 when the section hits the top of the viewport
       const scrollDistance = -rect.top;
       const totalScrollable = rect.height - window.innerHeight;
       
@@ -129,13 +128,20 @@ export default function EcosystemSection() {
           setActiveRole("b2b");
         }
       }
+      ticking = false;
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    // Run once on mount
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
     handleScroll();
     
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
