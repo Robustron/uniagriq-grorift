@@ -131,10 +131,9 @@ export default function ProblemStatementsSection() {
       </div>
 
       <div className="ps-grid">
-        {/* The Empty Space with Grid Lines, Glow & GLOBE (Top Left) */}
+        {/* The Empty Space with Grid Lines & Glow (Top Left) */}
         <div className="ps-empty-glow">
           <div className="ps-grid-lines"></div>
-          <DottedGlobe />
           <div className="ps-flare"></div>
         </div>
 
