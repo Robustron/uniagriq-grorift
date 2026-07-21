@@ -12,6 +12,7 @@ import NeuralIntelligenceCore from './components/NeuralIntelligenceCore'
 import JoinCommunity from './components/JoinCommunity'
 import Footer from './components/Footer'
 import PageLoader from './components/PageLoader'
+import ContactWidget from './components/ContactWidget'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -54,6 +55,7 @@ function App() {
         <NeuralIntelligenceCore />
         <JoinCommunity />
         <Footer />
+        <ContactWidget />
       </div>
     </>
   )
