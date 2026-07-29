@@ -197,7 +197,7 @@ export default function Footer() {
         <div className="footer-left">
           <div className="footer-brand">
             <div className="footer-brand-header">
-              <img src="/logo.png" alt="UniAgriQ Logo" className="footer-logo" />
+              <img src="/logo.jpg" alt="UniAgriQ Logo" className="footer-logo" />
               <h2 className="footer-title">
                 UNIAGRIQ
               </h2>

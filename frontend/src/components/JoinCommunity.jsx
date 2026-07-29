@@ -103,6 +103,29 @@ export default function JoinCommunity() {
   const [communityEmail, setCommunityEmail] = useState("");
   const [isCommunitySubscribed, setIsCommunitySubscribed] = useState(false);
 
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!communityEmail) return;
+    
+    try {
+      const response = await fetch('/api/subscribe.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: communityEmail })
+      });
+      
+      if (response.ok) {
+        setIsCommunitySubscribed(true);
+      } else {
+        const data = await response.json();
+        alert(data.error || 'Failed to subscribe');
+      }
+    } catch (err) {
+      console.error('Subscription error:', err);
+      alert('Network error. Please try again later.');
+    }
+  };
+
   return (
     <section className="join-community-section">
       {/* Huly-style Diagonal Glowing Beams */}

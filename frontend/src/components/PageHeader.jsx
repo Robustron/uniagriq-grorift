@@ -13,7 +13,7 @@ export default function PageHeader({ title, icon: Icon, iconColor = '#10b981' })
         </Link>
 
         <div className="page-header-brand">
-          <img src="/logo.png" alt="UniAgriQ Logo" className="page-header-logo" />
+          <img src="/logo.jpg" alt="UniAgriQ Logo" className="page-header-logo" />
           <div className="page-header-title-wrap">
             {Icon && <Icon size={22} color={iconColor} />}
             <span className="page-header-title">{title}</span>

@@ -6,7 +6,7 @@ export default function PageLoader() {
     <div className="page-loader">
       <div className="loader-content">
         <div className="loader-brand">
-          <img src="/logo.png" alt="UniAgriQ Logo" style={{ width: '40px', height: '40px', marginRight: '10px' }} />
+          <img src="/logo.jpg" alt="UniAgriQ Logo" style={{ width: '40px', height: '40px', marginRight: '10px' }} />
           UNIAGRIQ
         </div>
         <div className="loader-squares">
