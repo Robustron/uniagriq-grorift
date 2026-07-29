@@ -5,7 +5,10 @@ export default function PageLoader() {
   return (
     <div className="page-loader">
       <div className="loader-content">
-        <div className="loader-brand">UNIAGRIQ</div>
+        <div className="loader-brand">
+          <img src="/logo.png" alt="UniAgriQ Logo" style={{ width: '40px', height: '40px', marginRight: '10px' }} />
+          UNIAGRIQ
+        </div>
         <div className="loader-squares">
           <div className="loader-sq sq-1"></div>
           <div className="loader-sq sq-2"></div>

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const FooterBurst = () => {
@@ -217,22 +218,27 @@ export default function Footer() {
 
           {/* Social Icons Mini */}
           <div className="footer-socials">
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+            <a href="https://chat.whatsapp.com/GDP1jRAWsTi1JgUaqN8r3T" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+              <svg className="footer-social-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.503-5.724-1.46L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.579 2.003 14.113 1 11.99 1 6.554 1 2.13 5.371 2.128 10.8c-.001 1.64.45 3.242 1.302 4.667l-.852 3.11 3.201-.837z" />
+              </svg>
+            </a>
+            <a href="https://x.com/uniagric" target="_blank" rel="noopener noreferrer" className="footer-social-link">
               <svg className="footer-social-icon" viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+            <a href="https://www.linkedin.com/in/uniagriq-ai-9945b3406/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
               <svg className="footer-social-icon" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
               </svg>
             </a>
-            <a href="https://reddit.com" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+            <a href="https://www.reddit.com/user/uniagric/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
               <svg className="footer-social-icon" viewBox="0 0 24 24">
                 <path d="M24 11.5c0-1.654-1.346-3-3-3-.964 0-1.817.462-2.36 1.171-1.708-1.15-3.996-1.85-6.51-1.921l1.378-4.329 3.82.815c.012.96.793 1.735 1.76 1.735 1.02 0 1.85-.83 1.85-1.85s-.83-1.85-1.85-1.85c-.886 0-1.614.629-1.796 1.459l-4.22-.9c-.198-.043-.396.069-.462.268l-1.68 5.276c-2.545.048-4.862.748-6.592 1.906-.54-.694-1.38-1.144-2.328-1.144-1.654 0-3 1.346-3 3 0 1.306.842 2.41 2.01 2.822-.064.224-.1.46-.1.703 0 3.584 4.486 6.5 10 6.5s10-2.916 10-6.5c0-.243-.036-.479-.1-.703 1.168-.412 2.01-1.516 2.01-2.822zm-16 1.85c-.746 0-1.35-.604-1.35-1.35s.604-1.35 1.35-1.35 1.35.604 1.35 1.35-.604 1.35-1.35 1.35zm9.238 3.829c-1.026 1.026-2.986 1.11-3.238 1.11-.252 0-2.212-.084-3.238-1.11-.137-.137-.137-.358 0-.495.137-.137.358-.137.495 0 .817.817 2.378.895 2.743.895.365 0 1.926-.078 2.743-.895.137-.137.358-.137.495 0 .137.137.137.358 0 .495zm-.238-2.479c-.746 0-1.35-.604-1.35-1.35s.604-1.35 1.35-1.35 1.35.604 1.35 1.35-.604 1.35-1.35 1.35z" />
               </svg>
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+            <a href="https://www.instagram.com/uniagriq.ai" target="_blank" rel="noopener noreferrer" className="footer-social-link">
               <svg className="footer-social-icon icon-stroke" viewBox="0 0 24 24">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
@@ -247,34 +253,34 @@ export default function Footer() {
           <div className="footer-nav-col">
             <h4 className="footer-nav-title">CSR</h4>
             <div className="footer-nav-links">
-              <a href="/csr" className="footer-nav-link">Impact Stories</a>
-              <a href="/csr" className="footer-nav-link">Community Programs</a>
-              <a href="/csr" className="footer-nav-link">Sustainability</a>
+              <Link to="/csr" className="footer-nav-link">Impact Stories</Link>
+              <Link to="/csr" className="footer-nav-link">Community Programs</Link>
+              <Link to="/csr" className="footer-nav-link">Sustainability</Link>
             </div>
           </div>
           <div className="footer-nav-col">
             <h4 className="footer-nav-title">Marketplace</h4>
             <div className="footer-nav-links">
-              <a href="/marketplace" className="footer-nav-link">Fresh Crops</a>
-              <a href="/marketplace" className="footer-nav-link">Value-added Goods</a>
-              <a href="/b2b" className="footer-nav-link">B2B Sourcing</a>
+              <Link to="/marketplace" className="footer-nav-link">Fresh Crops</Link>
+              <Link to="/marketplace" className="footer-nav-link">Value-added Goods</Link>
+              <Link to="/b2b" className="footer-nav-link">B2B Sourcing</Link>
             </div>
           </div>
           <div className="footer-nav-col">
             <h4 className="footer-nav-title">About</h4>
             <div className="footer-nav-links">
-              <a href="/news" className="footer-nav-link">Agriculture & Science News</a>
-              <a href="/" className="footer-nav-link">Our Story</a>
-              <a href="/" className="footer-nav-link">Team</a>
-              <a href="/careers" className="footer-nav-link">Careers</a>
+              <Link to="/news" className="footer-nav-link">Agriculture & Science News</Link>
+              <Link to="/" className="footer-nav-link">Our Story</Link>
+              <Link to="/" className="footer-nav-link">Team</Link>
+              <Link to="/careers" className="footer-nav-link">Careers</Link>
             </div>
           </div>
           <div className="footer-nav-col">
             <h4 className="footer-nav-title">Legal</h4>
             <div className="footer-nav-links">
-              <a href="/" className="footer-nav-link">Terms of Service</a>
-              <a href="/" className="footer-nav-link">Privacy Policy</a>
-              <a href="/" className="footer-nav-link">Disclaimers</a>
+              <Link to="/" className="footer-nav-link">Terms of Service</Link>
+              <Link to="/" className="footer-nav-link">Privacy Policy</Link>
+              <Link to="/" className="footer-nav-link">Disclaimers</Link>
             </div>
           </div>
         </div>
