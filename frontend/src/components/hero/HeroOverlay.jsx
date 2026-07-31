@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -63,9 +64,9 @@ function Navbar() {
       </div>
       <div className="navbar-center">
         <div className="navbar-links">
-          <a href="#b2b">B2B</a>
-          <a href="#csr">CSR</a>
-          <a href="#marketplace">Marketplace</a>
+          <Link to="/b2b">B2B</Link>
+          <Link to="/csr">CSR</Link>
+          <Link to="/marketplace">Marketplace</Link>
         </div>
       </div>
       <div className="navbar-actions">

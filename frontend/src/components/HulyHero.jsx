@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import "./HulyHero.css";
 
 function Navbar() {
@@ -11,9 +12,9 @@ function Navbar() {
           <span className="logo-text">UniAgriQ</span>
         </div>
         <div className="navbar-links">
-          <a href="#b2b">B2B</a>
-          <a href="#csr">CSR</a>
-          <a href="#marketplace">Marketplace</a>
+          <Link to="/b2b">B2B</Link>
+          <Link to="/csr">CSR</Link>
+          <Link to="/marketplace">Marketplace</Link>
         </div>
       </div>
       <div className="navbar-actions">
