@@ -102,11 +102,16 @@ const GlowingDial = () => {
 export default function JoinCommunity() {
   const [communityEmail, setCommunityEmail] = useState("");
   const [isCommunitySubscribed, setIsCommunitySubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [subscribeError, setSubscribeError] = useState("");
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
     if (!communityEmail) return;
     
+    setIsSubmitting(true);
+    setSubscribeError("");
+
     try {
       const response = await fetch('/api/subscribe.js', {
         method: 'POST',
@@ -118,11 +123,13 @@ export default function JoinCommunity() {
         setIsCommunitySubscribed(true);
       } else {
         const data = await response.json();
-        alert(data.error || 'Failed to subscribe');
+        setSubscribeError(data.error || 'Failed to subscribe');
       }
     } catch (err) {
       console.error('Subscription error:', err);
-      alert('Network error. Please try again later.');
+      setSubscribeError('Network error. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
