@@ -4,6 +4,8 @@ export const marketplaceProducts = [
 ];
 export const marketplaceCategories = ['Grains', 'Fruits', 'Vegetables'];
 export const marketplaceSortOptions = [
-  { value: 'price_asc', label: 'Price: Low to High' },
-  { value: 'price_desc', label: 'Price: High to Low' }
+  'Popular',
+  'Price: Low to High',
+  'Price: High to Low',
+  'Newest'
 ];
